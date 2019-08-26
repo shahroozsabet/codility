@@ -3,6 +3,7 @@ package af;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Created by shsabet on 1/23/2019.
@@ -27,14 +28,7 @@ public class SolutionImpl implements Solution {
 
     @Override
     public int task2(int A, int B) {
-        int count = 0;
-        for (int i = 1; i < B; i++) {
-            int res = i * (i + 1);
-            if (A <= res && res <= B) {
-                count++;
-            }
-        }
-        return count;
+        return (int) IntStream.range(1, B).map(i -> i * (i + 1)).filter(res -> A <= res && res <= B).count();
     }
 
     @Override
