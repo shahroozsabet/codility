@@ -28,7 +28,7 @@ public class SolutionImpl implements Solution {
 
     @Override
     public int task2(int A, int B) {
-        return (int) IntStream.range(1, B).map(i -> i * (i + 1)).filter(res -> A <= res && res <= B).count();
+        return (int) IntStream.range(1, B).parallel().map(i -> i * (i + 1)).filter(res -> A <= res && res <= B).count();
     }
 
     @Override
